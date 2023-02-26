@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {UniversalButton} from "./UniversalButton";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const ChangeUniversal1 = (name: string,age: number) => {
+        console.log(name,age)
+    }
+    const ChangeUniversal2 = (name: string,age: number) => {
+        console.log(name + age)
+    }
+    return (
+        <div className="App">
+           <UniversalButton title={'MyChangeUniversalButton1'} callback = {() => ChangeUniversal1('Valeryia',15)}/>
+           <UniversalButton title={'MyChangeUniversalButton2'} callback = {() => ChangeUniversal2('Varvara', 20)}/>
+        </div>
+    );
 }
 
 export default App;
