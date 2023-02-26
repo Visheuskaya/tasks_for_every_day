@@ -4,7 +4,7 @@ export type PropsType = {
     title: string
     callback : () => void
 }
-export const Button = (props: PropsType) => {
+export const SupperButton = (props: PropsType) => {
     const onCLickHandler = () => {
         props.callback()
     }

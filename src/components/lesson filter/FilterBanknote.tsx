@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button} from "./Button";
+import {SupperButton} from "./SupperButton";
 
 type FilterMoney = 'dollar' | 'ruble' | 'all'
 export const FilterBanknote = () => {
@@ -40,9 +40,9 @@ export const FilterBanknote = () => {
                 })}
             </ul>
             <div style={{marginLeft: '35px'}}>
-                <Button title={'dollar'} callback={() => onCLickHandler('dollar')}/>
-                <Button title={'ruble'} callback={() => onCLickHandler('ruble')}/>
-                <Button title={'all'} callback={() => onCLickHandler('all')}/>
+                <SupperButton title={'dollar'} callback={() => onCLickHandler('dollar')}/>
+                <SupperButton title={'ruble'} callback={() => onCLickHandler('ruble')}/>
+                <SupperButton title={'all'} callback={() => onCLickHandler('all')}/>
             </div>
         </div>
     );
