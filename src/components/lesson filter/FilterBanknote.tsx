@@ -1,9 +1,15 @@
 import React, {useState} from 'react';
 import {SupperButton} from "./SupperButton";
+import {NewComponents} from "./NewComponents";
 
-type FilterMoney = 'dollar' | 'ruble' | 'all'
+export type FilterMoney = 'dollar' | 'ruble' | 'all'
+export type MoneyPropsType = {
+    banknote: string
+    nominal: number
+    number: string
+}
 export const FilterBanknote = () => {
-    const [money, setMoney] = useState([
+    const [money, setMoney] = useState<MoneyPropsType[]>([
         {banknote: "dollar", nominal: 100, number: "a123456789"},
         {banknote: "dollar", nominal: 50, number: "b123456789"},
         {banknote: "ruble", nominal: 100, number: "c123456789"},
@@ -22,28 +28,16 @@ export const FilterBanknote = () => {
     if (filter === 'ruble') {
         filteredMoney = money.filter(money => money.banknote === 'ruble')
     }
-    const onCLickHandler = (nameBanknote: FilterMoney) => {
+    const onChangeFilter = (nameBanknote: FilterMoney) => {
         setFilter(nameBanknote)
     }
 
     return (
         <div>
-            <ul>
-                {filteredMoney.map((objFromMoneyArr) => {
-                    return (
-                        <li>
-                            <span>{objFromMoneyArr.banknote}</span>
-                            <span>{objFromMoneyArr.nominal}</span>
-                            <span>{objFromMoneyArr.number}</span>
-                        </li>
-                    )
-                })}
-            </ul>
-            <div style={{marginLeft: '35px'}}>
-                <SupperButton title={'dollar'} callback={() => onCLickHandler('dollar')}/>
-                <SupperButton title={'ruble'} callback={() => onCLickHandler('ruble')}/>
-                <SupperButton title={'all'} callback={() => onCLickHandler('all')}/>
-            </div>
+            <NewComponents
+                money={filteredMoney}
+                onChangeFilter={onChangeFilter}
+            />
         </div>
     );
 };
